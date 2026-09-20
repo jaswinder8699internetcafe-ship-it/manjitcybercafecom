@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manjit Cosmetic, Telecom & Cyber Cafe</title>
+
+    <meta name="description"
+          content="Manjit Cosmetic, Telecom and Cyber Cafe - PAN Card services, passport size photos, printing, scanning, online forms, telecom and cyber cafe services.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #0b1f3a;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #22c55e;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #22c55e;
+        }
+
+        .menu-btn {
+            display: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(7, 25, 49, 0.82), rgba(7, 25, 49, 0.82)),
+                linear-gradient(135deg, #0b1f3a, #123c69);
+            padding: 70px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 6vw, 65px);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #22c55e;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            color: #dbeafe;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0b1f3a;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        /* GENERAL */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #0b1f3a;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #64748b;
+        }
+
+        /* SERVICES */
+        .services {
+            background: white;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 30px 25px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+            border-color: #22c55e;
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #0b1f3a;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            color: #64748b;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #eef6ff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            color: #0b1f3a;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            gap: 15px;
+        }
+
+        .feature {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 5px solid #22c55e;
+            font-weight: bold;
+        }
+
+        /* SERVICES LIST */
+        .service-list-section {
+            background: white;
+        }
+
+        .service-list {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .service-list-item {
+            background: #f8fafc;
+            padding: 17px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-list-item::before {
+            content: "✓";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #0b1f3a;
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title p {
+            color: #cbd5e1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.08);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .contact-card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: #86efac;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        /* CTA */
+        .cta {
+            background: #22c55e;
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #061426;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* FLOATING BUTTONS */
+        .floating-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .floating-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .call {
+            background: #2563eb;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 62px;
+                left: 0;
+                right: 0;
+                background: #0b1f3a;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                gap: 18px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .service-grid,
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .service-grid,
+            .contact-grid,
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2,
+            .about h2 {
+                font-size: 30px;
+            }
+
+            .floating-buttons {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">
+            MANJIT <span>CYBER CAFE</span>
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            MANJIT <span>COSMETIC</span>
+        </h1>
+
+        <h2>
+            TELECOM & CYBER CAFE
+        </h2>
+
+        <p>
+            Your one-stop destination for cyber cafe services,
+            PAN Card services, passport-size photos, printing,
+            online forms, telecom services and more.
+        </p>
+
+        <p style="margin-top:-15px;">
+            📍 New Gandhi Nagar, Amrik Nagar, Qaji Mandi, Jalandhar, Punjab 144001 &nbsp; | &nbsp;
+            🕐 7:00 AM – 10:00 PM
+        </p>
+
+        <div class="buttons">
+
+            <a href="tel:8699433423" class="btn btn-primary">
+                📞 Call Us
+            </a>
+
+            <a href="https://wa.me/918146309851"
+               class="btn btn-secondary"
+               target="_blank">
+                💬 WhatsApp: 8146309851
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Professional and convenient services under one roof.</p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Passport Size Photos</h3>
+                <p>
+                    Professional passport-size photographs
+                    for forms and official documents.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🪪</div>
+                <h3>PAN Card Services</h3>
+                <p>
+                    Assistance with PAN card applications,
+                    corrections and related services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🖨️</div>
+                <h3>Printing</h3>
+                <p>
+                    Black & white and colour document
+                    printing services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📄</div>
+                <h3>Photocopy</h3>
+                <p>
+                    Fast and convenient photocopying
+                    for your documents.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Scanning</h3>
+                <p>
+                    Scan documents and prepare digital
+                    copies for online use.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Online Services</h3>
+                <p>
+                    Assistance with online applications,
+                    registrations and forms.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📜</div>
+                <h3>Birth Certificate</h3>
+                <p>
+                    Assistance with birth certificate
+                    applications and online services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Caste Certificate</h3>
+                <p>
+                    Assistance with caste certificate
+                    applications and related services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🗳️</div>
+                <h3>Voter Card</h3>
+                <p>
+                    Assistance with voter card applications,
+                    corrections and related online services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💸</div>
+                <h3>Money Transfer</h3>
+                <p>
+                    Money transfer assistance through
+                    available digital and banking services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🪪</div>
+                <h3>Aadhaar Printout</h3>
+                <p>
+                    Aadhaar printout and related document
+                    assistance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Driving License</h3>
+                <p>
+                    Assistance with driving license
+                    applications and online services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Internet & Computer</h3>
+                <p>
+                    Computer and internet access for
+                    personal and official work.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Telecom Services</h3>
+                <p>
+                    Mobile and telecom-related services
+                    and assistance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💄</div>
+                <h3>Cosmetic Products</h3>
+                <p>
+                    Browse our available cosmetic and
+                    personal-care products.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-content">
+
+            <div>
+                <h2>Everything You Need in One Place</h2>
+
+                <p>
+                    Welcome to <strong>MANJIT COSMETIC,
+                    TELECOM AND CYBER CAFE</strong>.
+                </p>
+
+                <p>
+                    We provide convenient cyber cafe,
+                    documentation, photography, PAN Card,
+                    telecom and online services for our customers.
+                </p>
+
+                <p>
+                    Whether you need a passport-size photo,
+                    document printing, scanning, photocopying,
+                    online form assistance or other cyber cafe
+                    services, we're here to help.
+                </p>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    ✓ Quick & Convenient Service
+                </div>
+
+                <div class="feature">
+                    ✓ Multiple Services Under One Roof
+                </div>
+
+                <div class="feature">
+                    ✓ PAN Card & Online Assistance
+                </div>
+
+                <div class="feature">
+                    ✓ Passport Size Photography
+                </div>
+
+                <div class="feature">
+                    ✓ Printing, Scanning & Photocopy
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMPLETE SERVICE LIST -->
+<section class="service-list-section">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Cyber Cafe Services</h2>
+            <p>Ask us about any of the following services.</p>
+        </div>
+
+        <div class="service-list">
+
+            <div class="service-list-item">
+                PAN Card Application
+            </div>
+
+            <div class="service-list-item">
+                PAN Card Correction
+            </div>
+
+            <div class="service-list-item">
+                Passport Size Photos
+            </div>
+
+            <div class="service-list-item">
+                Colour Printing
+            </div>
+
+            <div class="service-list-item">
+                Black & White Printing
+            </div>
+
+            <div class="service-list-item">
+                Photocopy / Xerox
+            </div>
+
+            <div class="service-list-item">
+                Document Scanning
+            </div>
+
+            <div class="service-list-item">
+                Online Form Filling
+            </div>
+
+            <div class="service-list-item">
+                Online Application Assistance
+            </div>
+
+            <div class="service-list-item">
+                Email & Internet Services
+            </div>
+
+            <div class="service-list-item">
+                Birth Certificate Services
+            </div>
+
+            <div class="service-list-item">
+                Caste Certificate Services
+            </div>
+
+            <div class="service-list-item">
+                Voter Card Services
+            </div>
+
+            <div class="service-list-item">
+                Money Transfer Services
+            </div>
+
+            <div class="service-list-item">
+                Aadhaar Printout
+            </div>
+
+            <div class="service-list-item">
+                Driving License Services
+            </div>
+
+            <div class="service-list-item">
+                Document Uploading
+            </div>
+
+            <div class="service-list-item">
+                Digital Document Services
+            </div>
+
+            <div class="service-list-item">
+                Telecom Services
+            </div>
+
+            <div class="service-list-item">
+                Computer / Internet Access
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+
+    <h2>Need a Cyber Cafe Service?</h2>
+
+    <p>
+        Contact MANJIT COSMETIC, TELECOM AND CYBER CAFE today.
+    </p>
+
+    <a href="tel:8699433423" class="btn btn-secondary">
+        📞 8699433423
+    </a>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Get in touch for services and enquiries.
+            </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="icon">📍</div>
+
+                <h3>Address</h3>
+
+                <p>Amrik Nagar, Jalandhar<br>Near Surya Enclave</p>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=MANJIT+COSMETIC+TELECO+STORE%2C+New+Gandhi+Nagar%2C+Amrik+Nagar%2C+Qaji+Mandi%2C+Jalandhar%2C+Punjab+144001"
+                   target="_blank">
+                    Get Directions
+                </a>
+
+            </div>
+
+            <div class="contact-card">
+
+                <div class="icon">🕐</div>
+
+                <h3>Opening Hours</h3>
+
+                <p>Every Day</p>
+                <p><strong>7:00 AM – 10:00 PM</strong></p>
+
+            </div>
+
+            <div class="contact-card">
+
+                <div class="icon">📞</div>
+
+                <h3>Phone</h3>
+
+                <a href="tel:8699433423">
+                    8699433423
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="icon">💬</div>
+
+                <h3>WhatsApp</h3>
+
+                <a href="https://wa.me/918146309851"
+                   target="_blank">
+                    WhatsApp: 8146309851
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <div class="icon">✉️</div>
+
+                <h3>Email</h3>
+
+                <a href="mailto:JASWINDER8038SJPS@GMAIL.COM">
+                    JASWINDER8038SJPS@GMAIL.COM
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © <span id="year"></span>
+        <strong>MANJIT COSMETIC, TELECOM AND CYBER CAFE</strong>
+    </p>
+
+    <p>
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+
+    <a href="https://wa.me/918146309851"
+       target="_blank"
+       class="floating-btn whatsapp"
+       title="WhatsApp">
+        💬
+    </a>
+
+    <a href="tel:8699433423"
+       class="floating-btn call"
+       title="Call">
+        📞
+    </a>
+
+</div>
+
+
+<script>
+
+    // Mobile menu
+    function toggleMenu() {
+        document
+            .getElementById("navLinks")
+            .classList.toggle("active");
+    }
+
+    // Close menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+        link.addEventListener("click", function() {
+            document
+                .getElementById("navLinks")
+                .classList.remove("active");
+        });
+    });
+
+    // Automatically display current year
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
