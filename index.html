@@ -384,6 +384,115 @@
             background: #2563eb;
         }
 
+
+        /* FEEDBACK & REVIEWS */
+        .feedback { background: #f7f9fc; }
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+        .feedback-form, .reviews-box {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 25px rgba(15,23,42,0.07);
+        }
+        .feedback-form h3, .reviews-box h3 {
+            color: #0b1f3a;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #334155;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font: inherit;
+            outline: none;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34,197,94,0.12);
+        }
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 3px;
+        }
+        .star-rating input { display: none; }
+        .star-rating label {
+            font-size: 32px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label { color: #f59e0b; }
+        .feedback-submit {
+            width: 100%;
+            border: 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .privacy-note {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 10px;
+        }
+        .review-list {
+            display: grid;
+            gap: 15px;
+            max-height: 560px;
+            overflow-y: auto;
+        }
+        .review-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .review-name { font-weight: bold; color: #0b1f3a; }
+        .review-mobile { font-size: 12px; color: #64748b; }
+        .review-stars {
+            color: #f59e0b;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        .review-message {
+            color: #475569;
+            margin-top: 7px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+        .no-reviews {
+            color: #64748b;
+            text-align: center;
+            padding: 25px 10px;
+        }
+
         /* MOBILE */
         @media (max-width: 800px) {
 
@@ -414,6 +523,10 @@
             }
 
             .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .feedback-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -470,6 +583,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#feedback">Reviews</a></li>
         </ul>
 
     </div>
@@ -502,7 +616,7 @@
 
         <div class="buttons">
 
-            <a href="tel:8699433423" class="btn btn-primary">
+            <a href="tel:8146309851" class="btn btn-primary">
                 📞 Call Us
             </a>
 
@@ -832,6 +946,75 @@
 </section>
 
 
+
+<!-- FEEDBACK & REVIEWS -->
+<section class="feedback" id="feedback">
+    <div class="container">
+        <div class="section-title">
+            <h2>Customer Feedback & Reviews</h2>
+            <p>Share your experience with MANJIT COSMETIC, TELECOM AND CYBER CAFE.</p>
+        </div>
+
+        <div class="feedback-grid">
+            <div class="feedback-form">
+                <h3>⭐ Leave Your Feedback</h3>
+
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="reviewName">Your Name</label>
+                        <input type="text" id="reviewName" name="name"
+                               placeholder="Enter your name" required maxlength="60">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewMobile">Mobile Number</label>
+                        <input type="tel" id="reviewMobile" name="mobile"
+                               placeholder="Enter your mobile number"
+                               inputmode="numeric" pattern="[0-9+\-\s]{10,15}"
+                               maxlength="15" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Star Rating</label>
+                        <div class="star-rating" aria-label="Choose a star rating">
+                            <input type="radio" id="star5" name="rating" value="5" required>
+                            <label for="star5" title="5 stars">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="4 stars">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="3 stars">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="2 stars">★</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="1 star">★</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewMessage">Your Feedback</label>
+                        <textarea id="reviewMessage" name="message"
+                                  placeholder="Write your feedback..." required maxlength="500"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary feedback-submit">
+                        Submit Feedback                    </button>
+
+                    <p class="privacy-note">
+                        Your mobile number is masked when the review is displayed publicly.
+                    </p>
+                </form>
+            </div>
+
+            <div class="reviews-box">
+                <h3>💬 Customer Reviews</h3>
+                <div id="reviewList" class="review-list">
+                    <div class="no-reviews">No reviews yet. Be the first to leave feedback!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="cta">
 
@@ -841,8 +1024,8 @@
         Contact MANJIT COSMETIC, TELECOM AND CYBER CAFE today.
     </p>
 
-    <a href="tel:8699433423" class="btn btn-secondary">
-        📞 8699433423
+    <a href="tel:8146309851" class="btn btn-secondary">
+        📞 8146309851
     </a>
 
 </section>
@@ -897,8 +1080,8 @@
 
                 <h3>Phone</h3>
 
-                <a href="tel:8699433423">
-                    8699433423
+                <a href="tel:8146309851">
+                    8146309851
                 </a>
 
             </div>
@@ -962,7 +1145,7 @@
         💬
     </a>
 
-    <a href="tel:8699433423"
+    <a href="tel:8146309851"
        class="floating-btn call"
        title="Call">
         📞
@@ -992,6 +1175,91 @@
     // Automatically display current year
     document.getElementById("year").textContent =
         new Date().getFullYear();
+
+
+    // Customer feedback and reviews
+    const feedbackForm = document.getElementById("feedbackForm");
+    const reviewList = document.getElementById("reviewList");
+
+    function getReviews() {
+        try {
+            return JSON.parse(localStorage.getItem("manjitReviews") || "[]");
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function maskMobile(mobile) {
+        const clean = mobile.replace(/\s+/g, "");
+        if (clean.length <= 4) return clean;
+        return "******" + clean.slice(-4);
+    }
+
+    function displayReviews() {
+        const reviews = getReviews();
+
+        if (!reviews.length) {
+            reviewList.innerHTML =
+                '<div class="no-reviews">No reviews yet. Be the first to leave feedback!</div>';
+            return;
+        }
+
+        reviewList.innerHTML = reviews.map(function(review) {
+            const rating = Number(review.rating);
+            const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+            return `
+                <div class="review-card">
+                    <div class="review-header">
+                        <div>
+                            <div class="review-name">${escapeHtml(review.name)}</div>
+                            <div class="review-mobile">Mobile: ${escapeHtml(maskMobile(review.mobile))}</div>
+                        </div>
+                        <div class="review-stars" aria-label="${rating} out of 5 stars">${stars}</div>
+                    </div>
+                    <div class="review-message">${escapeHtml(review.message)}</div>
+                </div>
+            `;
+        }).join("");
+    }
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(feedbackForm);
+            const review = {
+                name: formData.get("name").trim(),
+                mobile: formData.get("mobile").trim(),
+                rating: formData.get("rating"),
+                message: formData.get("message").trim(),
+                date: new Date().toISOString()
+            };
+
+            const reviews = getReviews();
+            reviews.unshift(review);
+
+            try {
+                localStorage.setItem("manjitReviews", JSON.stringify(reviews));
+                feedbackForm.reset();
+                displayReviews();
+                alert("Thank you! Your feedback has been submitted.");
+            } catch (error) {
+                alert("This browser could not save the review.");
+            }
+        });
+    }
+
+    displayReviews();
 
 </script>
 
